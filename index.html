@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3ef">
+  <meta name="description" content="查看今天的行程與待辦事項，讓大學生活更有條理。">
+  <title>今日計畫｜個人行程管理</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <div class="brand-mark" aria-hidden="true">day<span>·</span>by</div>
+      <p class="eyebrow">YOUR PERSONAL PLANNER</p>
+      <h1>今日計畫</h1>
+      <p class="header-intro">把今天的步調安排好，留一點空間給自己。</p>
+      <div class="date-card" aria-live="polite"><span class="date-icon" aria-hidden="true">✳</span><time id="today-date">正在載入日期…</time></div>
+    </header>
+    <section class="content-grid" aria-label="今日行程與待辦事項">
+      <section class="panel schedule-panel" aria-labelledby="schedule-heading">
+        <div class="section-heading"><div><p class="section-kicker">ON YOUR CALENDAR</p><h2 id="schedule-heading">今日行程</h2></div><span class="count-badge">3 個安排</span></div>
+        <ol class="schedule-list">
+          <li class="schedule-item"><time class="schedule-time" datetime="09:00">09:00</time><span class="timeline-marker marker-sage" aria-hidden="true"></span><div class="schedule-detail"><h3>早八｜微積分</h3><p>理學院 R201・複習第三章</p></div><span class="event-tag tag-sage">課程</span></li>
+          <li class="schedule-item"><time class="schedule-time" datetime="12:30">12:30</time><span class="timeline-marker marker-rose" aria-hidden="true"></span><div class="schedule-detail"><h3>和同學吃午餐</h3><p>學生活動中心・一起充電</p></div><span class="event-tag tag-rose">休息</span></li>
+          <li class="schedule-item"><time class="schedule-time" datetime="15:00">15:00</time><span class="timeline-marker marker-blue" aria-hidden="true"></span><div class="schedule-detail"><h3>專題小組討論</h3><p>圖書館 3 樓討論室・整理簡報</p></div><span class="event-tag tag-blue">專題</span></li>
+        </ol>
+        <div class="form-divider" aria-hidden="true"><span>MAKE A NEW PLAN</span></div>
+        <form class="add-event-form" aria-labelledby="form-heading">
+          <div class="form-heading-row"><div><p class="section-kicker">A LITTLE MORE PLANNING</p><h2 id="form-heading">新增行程</h2></div><span class="form-sparkle" aria-hidden="true">＋</span></div>
+          <div class="form-fields">
+            <div class="field-group"><label for="event-name">行程名稱</label><input id="event-name" name="event-name" type="text" placeholder="例如：社團迎新會"></div>
+            <div class="field-row"><div class="field-group"><label for="event-date">日期</label><input id="event-date" name="event-date" type="date"></div><div class="field-group"><label for="event-time">時間</label><input id="event-time" name="event-time" type="time"></div></div>
+            <div class="field-group"><label for="event-location">地點 <span class="optional-label">選填</span></label><input id="event-location" name="event-location" type="text" placeholder="輸入地點"></div>
+            <button class="submit-button" type="button" aria-describedby="form-note">新增到今日行程 <span aria-hidden="true">↗</span></button>
+            <p class="form-note" id="form-note">這是表單外觀示意，目前不會儲存或新增行程。</p>
+          </div>
+        </form>
+      </section>
+      <section class="panel tasks-panel" aria-labelledby="tasks-heading">
+        <div class="section-heading"><div><p class="section-kicker">SMALL STEPS, BIG PROGRESS</p><h2 id="tasks-heading">待辦清單</h2></div><span class="count-badge count-muted">3 件任務</span></div>
+        <ul class="task-list">
+          <li class="task-item is-complete" data-task-id="notes"><button class="task-toggle" type="button" aria-pressed="true"><span class="task-check" aria-hidden="true">✓</span></button><div class="task-copy"><h3>整理今天的上課筆記</h3><p>微積分・第 3 章</p></div><span class="task-status status-done">已完成</span></li>
+          <li class="task-item" data-task-id="essay"><button class="task-toggle" type="button" aria-pressed="false"><span class="task-check" aria-hidden="true"></span></button><div class="task-copy"><h3>繳交通識課心得</h3><p>截止時間・今天 23:59</p></div><span class="task-status status-pending">未完成</span></li>
+          <li class="task-item" data-task-id="shopping"><button class="task-toggle" type="button" aria-pressed="false"><span class="task-check" aria-hidden="true"></span></button><div class="task-copy"><h3>買洗衣精和水果</h3><p>回宿舍前順路採買</p></div><span class="task-status status-pending">未完成</span></li>
+        </ul>
+        <aside class="gentle-reminder"><span class="reminder-icon" aria-hidden="true">☁</span><div><p class="reminder-title">給自己一點喘息</p><p>完成一件事，也值得好好肯定自己。</p></div></aside>
+        <footer class="panel-footer"><span class="footer-dot" aria-hidden="true"></span> 慢慢來，今天也會是很好的一天。</footer>
+      </section>
+    </section>
+    <section class="panel weekly-panel" aria-labelledby="weekly-heading">
+      <div class="section-heading"><div><p class="section-kicker">YOUR WEEK AT A GLANCE</p><h2 id="weekly-heading">每週課表</h2></div><span class="count-badge count-muted">固定課程</span></div>
+      <div class="timetable-scroll" role="region" aria-label="每週課表，可左右滑動查看完整欄位" tabindex="0">
+        <table class="timetable">
+          <thead><tr><th scope="col">節次</th><th scope="col">星期一</th><th scope="col">星期二</th><th scope="col">星期三</th><th scope="col">星期四</th><th scope="col">星期五</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><span>08:10</span><span>09:00</span></th><td><span class="class-card class-sage">微積分<small>R201</small></span></td><td><span class="empty-slot">—</span></td><td><span class="class-card class-blue">英文寫作<small>文學院 302</small></span></td><td><span class="empty-slot">—</span></td><td><span class="class-card class-rose">微積分<small>R201</small></span></td></tr>
+            <tr><th scope="row"><span>10:10</span><span>12:00</span></th><td><span class="class-card class-blue">程式設計<small>資訊館 205</small></span></td><td><span class="class-card class-sand">普通物理<small>理學院 101</small></span></td><td><span class="empty-slot">—</span></td><td><span class="class-card class-sage">程式設計<small>資訊館 205</small></span></td><td><span class="empty-slot">—</span></td></tr>
+            <tr><th scope="row"><span>13:10</span><span>15:00</span></th><td><span class="empty-slot">—</span></td><td><span class="class-card class-rose">通識：電影與人生<small>共同教室 402</small></span></td><td><span class="class-card class-sand">普通物理<small>理學院 101</small></span></td><td><span class="empty-slot">—</span></td><td><span class="class-card class-blue">資料結構<small>資訊館 301</small></span></td></tr>
+            <tr><th scope="row"><span>15:10</span><span>17:00</span></th><td><span class="class-card class-lilac">資料結構<small>資訊館 301</small></span></td><td><span class="empty-slot">—</span></td><td><span class="class-card class-sage">體育：羽球<small>體育館</small></span></td><td><span class="class-card class-lilac">英文寫作<small>文學院 302</small></span></td><td><span class="empty-slot">—</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="timetable-note">課表為範例內容，可依你的實際課程自行修改 HTML。</p>
+    </section>
+    <footer class="page-footer">MADE FOR YOUR EVERYDAY <span aria-hidden="true">✳</span></footer>
+  </main>
+</body>
+</html>
